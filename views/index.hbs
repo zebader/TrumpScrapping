@@ -9,10 +9,12 @@
     <h1>TrumpScrapping</h1>
     <p>If the 10 first Trump tweets gets more than 250.000 likes the world explodes</p>
     <h3>Total likes:</h3>
-    <h2>{{dataTrump.totalLikes}}</h2>
+    <h2 class='total-likes'>{{dataTrump.totalLikes}}</h2>
+    <ul>
     {{#each dataTrump.tweetLikes}}
-      <p>{{this}}</p>
+      <li>{{this}}</li>
     {{/each}}
+    </ul>
   </article>
 </section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
@@ -21,7 +23,11 @@
   const trying = () =>{
     axios.get('http://localhost:3000/data')
     .then(function (response) {
-      console.log(response)
+      const h2 = document.querySelector('.total-likes')
+      h2.innerHTML = response.data.totalLikes
+
+      const bgImg = document.querySelector('section')
+      bgImg.style.backgroundImage = 'url(https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1554933379/shape/mentalfloss/nuclear-bomb-dirty-470309868.jpg)'
     })
     .catch(function (error) {
       console.log(error)

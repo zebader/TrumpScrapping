@@ -52,7 +52,7 @@ router.get('/', function(req, res, next) {
         bgImg:bgImg
        }
   
-         res.send({ dataTrump });
+         res.send( dataTrump );
   
     } catch (error) {
       console.log(error)
