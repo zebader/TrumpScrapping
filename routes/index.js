@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const cheerio = require('cheerio')
 const request = require('request-promise')
 
@@ -42,7 +42,7 @@ router.get('/', function(req, res, next) {
         const roundedTotalLikes = Number(totalLikes).toFixed(3)
 
         let worldWillEnd = null;
-        if(Number(roundedTotalLikes)*1000 >= 250000){
+        if(Number(roundedTotalLikes)*1000 >= 350000){
           worldWillEnd = 'https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1554933379/shape/mentalfloss/nuclear-bomb-dirty-470309868.jpg'
         }
 

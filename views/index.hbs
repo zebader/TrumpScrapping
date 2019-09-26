@@ -7,10 +7,10 @@
 ">
   <article>
     <h1>TrumpScrapping</h1>
-    <p>If the 10 first Trump tweets gets more than 250.000 likes the world explodes</p>
+    <p>If the 10 first Trump tweets gets more than 350.000 likes the world explodes</p>
     <h3>Total likes:</h3>
-    <h2 class='total-likes'>{{dataTrump.totalLikes}}</h2>
-    <ul>
+    <h2 class="total-likes">{{dataTrump.totalLikes}}</h2>
+    <ul class="likes-list">
     {{#each dataTrump.tweetLikes}}
       <li>{{this}}</li>
     {{/each}}
@@ -26,13 +26,21 @@
       const h2 = document.querySelector('.total-likes')
       h2.innerHTML = response.data.totalLikes
 
-      const bgImg = document.querySelector('section')
-      bgImg.style.backgroundImage = 'url(https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1554933379/shape/mentalfloss/nuclear-bomb-dirty-470309868.jpg)'
+      const bgImg = document.querySelector('section');
+      bgImg.style.backgroundImage = `url(${response.data.worldWillEnd || response.data.bgImg })`
+    
+      const ul = document.querySelector('.likes-list');
+      const listLikes = response.data.tweetLikes.reduce((a,el) =>{
+        return `${a}
+        <li>${el}</li>`
+      },'')
+
+      ul.innerHTML = listLikes
     })
     .catch(function (error) {
       console.log(error)
     }); 
   }
-  setInterval(trying,1000)
+  setInterval(trying,500)
   
 </script>
