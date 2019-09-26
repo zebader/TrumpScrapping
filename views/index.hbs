@@ -1,8 +1,32 @@
-<section style="background-image:url({{dataTrump.bgImg}})">
-<h1>TrumpScrapping</h1>
+<section style="
+{{#if dataTrump.worldWillEnd}}
+  background-image:url({{dataTrump.worldWillEnd}});
+{{else}}
+  background-image:url({{dataTrump.bgImg}});
+{{/if}}
+">
   <article>
-  {{#each dataTrump.filteredByLike}}
-    <p>{{this}}</p>
-  {{/each}}
+    <h1>TrumpScrapping</h1>
+    <p>If the 10 first Trump tweets gets more than 250.000 likes the world explodes</p>
+    <h3>Total likes:</h3>
+    <h2>{{dataTrump.totalLikes}}</h2>
+    {{#each dataTrump.tweetLikes}}
+      <p>{{this}}</p>
+    {{/each}}
   </article>
 </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
+<script>
+
+  const trying = () =>{
+    axios.get('http://localhost:3000/data')
+    .then(function (response) {
+      console.log(response)
+    })
+    .catch(function (error) {
+      console.log(error)
+    }); 
+  }
+  setInterval(trying,1000)
+  
+</script>

@@ -16,10 +16,14 @@ a {
 section{
   text-align: center;
   width: 100%;
-  background-size:cover;
+  background-size: cover;
   height: 100vh;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-section h1{
+section article h1{
   font-family: 'Mansalva', cursive;
   color:blue;
   font-size:4em;

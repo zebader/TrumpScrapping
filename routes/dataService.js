@@ -3,7 +3,6 @@ var router = express.Router();
 const cheerio = require('cheerio')
 const request = require('request-promise')
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
 
   const init = async () =>{
@@ -53,7 +52,7 @@ router.get('/', function(req, res, next) {
         bgImg:bgImg
        }
   
-         res.render('index', { dataTrump });
+         res.send({ dataTrump });
   
     } catch (error) {
       console.log(error)
